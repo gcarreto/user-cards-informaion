@@ -6,6 +6,11 @@ This app allows you to sign up or authenticate thru facebook credentials.
 
 You can signup and immediatly will appear on the main screen, if you currently hold credentials then you can just introduce your credentials, if you want to register with facebook only your display name and token for accessing will be save.
 
+cards saved will be associated with your account and will be retrieved next time you login into the app.
+incoming cards from Holonis API can be quickly added into the database by clicking edit and save them. 
+saved cards will be removed from database when clicking remove, incoming cards from Holonis API only will be removed from display.
+10 new cards will be loaded once you reach the bottom of the page.
+
 
 ##FOCUS
 
@@ -34,7 +39,9 @@ but forgotten for the update resource.
 * when the user cards are retrieved first the previous ones stored in mongodb are retrieved in batches of then until there's no more and then the ones from the holonis API, looks like there's a bug with the pagination when doing a refresh once logged in, probably pagination handling should be moved to front-end.
 * user cards back-end resource was called each time with $http dependency directly however it could be handled better with angularjs component $resource.
 * A service should be created to handle separately the creation of a new user card and the edit modal, the lack of this service is causing that by handle both forms with the same controller the values from Edit are being set in the create form.
-* this is a small application but the creation of buttons inside the ng-repeat directive for editing and removing could cause and overloading of watchers when loading to much data, I know there are work arounds but right now I'm unfamiliar with this 
+* this is a small application but the creation of buttons inside the ng-repeat directive for editing and removing could cause and overloading of watchers when loading to much data, I know there are work arounds but right now I'm unfamiliar with this.
+* Usually as I write a service o helper library a unit test is written at the same, I have used the most populars but I commonly use nodeunit and mockery, given more time I would add this to the backend.
+* I would have added unit test to the fron-end, I have no experience testing functionality in the front-end.
 ```
 
 ###left out
