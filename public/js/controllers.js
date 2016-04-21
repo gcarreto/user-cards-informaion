@@ -36,7 +36,11 @@ myAppModule.controller('LoginController',function($scope,$http,$window){
 		});
 		
 	}
-		
+	
+	$scope.logout = function(){		
+		$window.location.href = '/app/logout';				
+	}		
+	
 });
 
 myAppModule.controller('CardsController', function ($scope,$http,$modal) {	
