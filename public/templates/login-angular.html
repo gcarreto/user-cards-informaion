@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='holonisApp'>
+<head>
+    <title>Node Authentication</title>
+    <link href="/css/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <style>
+        body        { padding-top:100px; }
+    </style>
+</head>
+<body>
+<div class="container" ng-controller="LoginController">
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+		
+			<form class="form-horizontal" ng-submit="login()">
+			<div class="navbar-header">
+				<span class="navbar-brand" > Login: </span>					
+			</div>				
+			<div class="navbar-header">
+				<div class="form-group navbar-brand"> 										
+					<input type="text"
+						   class="form-control"
+						   ng-model="user.username"
+						   placeholder="email"
+						   required/>					
+				</div >
+			</div>			
+			<div class="navbar-header">
+				<div class="form-group navbar-brand"> 										
+					<input type="password"
+						   class="form-control"
+						   ng-model="user.password"
+						   placeholder="password"
+						   required/>					
+				</div >
+			</div>
+			<div class="navbar-header">
+				<div class="form-group navbar-brand"> 										
+					<button type="submit"
+						   class="btn btn-default"/> login</button>
+				</div >
+			</div>
+			<div class="navbar-header">
+				<span class="navbar-brand"> or register with:</span>					
+			</div>
+			<div class="navbar-header">
+				<div class="form-group navbar-brand"> 										
+					<a href="/app/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+				</div >
+			</div>
+			</form >
+		</div>		
+	</nav>
+	
+	<div class="col-md-5">
+
+		<div class="panel panel-info" >
+			<div class="panel-heading" >Signup</div >
+			<div class="panel-body" >							
+				<form class="form-horizontal" ng-submit="signup()">					
+					
+					<div class="form-group" >
+						<label class="col-sm-2 control-label" >Email</label >
+						<div class="col-sm-10" >
+							<input type="text"
+								   class="form-control"
+								   name="name"
+								   ng-model="register.username"
+								   required/>
+						</div >
+					</div >
+					<div class="form-group" >
+						<label class="col-sm-2 control-label" >Password</label >
+						<div class="col-sm-10" >
+							<input type="password"
+								   name="password"
+								   class="form-control"
+								   ng-model="register.password"
+								   required/>
+						</div>
+					</div>
+					<div class="buttons" >
+						<button class="btn btn-primary btn-block"
+								type="submit">Signup
+						</button>
+					</div>
+	
+				</form >
+			</div >
+		</div >					
+	</div >
+	
+	<script src="/js/angular.js"></script>
+	<script src="/js/angular-auto-validate/dist/jcs-auto-validate.min.js" ></script >
+	<script src="/js/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
+	<script src="/js/spin.js/spin.js"></script>
+	<script src="/js/angular-spinner/angular-spinner.min.js"></script>
+	<script src="/js/angular-strap/dist/angular-strap.min.js" ></script >
+	<script src="/js/angular-strap/dist/angular-strap.tpl.min.js" ></script >
+	<script src="/js/controllers.js"></script>
+</div>
+</body>
+</html>

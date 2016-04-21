@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='holonisApp'>
+	<head>
+		<link href="/css/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+		<link href="/css/main.css" rel="stylesheet">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	</head>
+	<body>
+	
+		<nav class="navbar navbar-inverse navbar-fixed-top" >
+			<div class="container" >
+				<div class="navbar-header">					
+					<a class="navbar-brand"
+					   href="/app/cards" >User cards information
+					</a>
+				</div>
+			</div>
+		</nav>
+	
+		<div class="container main-content" >
+
+			<div class="row" ng-controller="CardsController">
+				<div class="col-md-7">
+					<div class="row" >
+						<div class="col-md-12" infinite-scroll="getCards()" infinite-scroll-distance="1">						
+							<div class="panel panel-default" ng-repeat="card in cards">
+								<div class="panel-heading" >Details</div >
+								<div class="panel-body">
+
+									<dl>
+										<dt >Name</dt >
+										<dd >{{card.name}}</dd >
+										<dt >Username</dt >
+										<dd >{{card.username}}</dd >
+										<dt >Email</dt >
+										<dd >{{card.email}}</dd >										
+										<dt >Phonenumber</dt >
+										<dd >{{card.phone}}</dd >
+										<dt >Address</dt >
+										<dd >{{card.address}}</dd >										
+										<dt >City</dt >
+										<dd >{{card.city}}</dd >
+										<dt >Country</dt >
+										<dd >{{card.country}}</dd >
+									</dl>
+
+									<button ng-click="remove($index)">Remove</button><button ng-click="showCreateModal(card,$index)">Edit</button>
+								</div>
+																
+							</div>	
+							<div class="spinner" ng-show="isLoading">
+								<span us-spinner="{radius:8, width:5, length: 3, lines:9}" ></span>
+								
+								<p>Loading...</p>
+							</div >
+						</div >
+						
+												
+					</div>					
+					<!--<div infinite-scroll="getCards()" infinite-scroll-immediate-check="false" infinite-scroll-distance="3"></div>-->
+				</div >				
+				<div class="col-md-5">
+
+					<div class="panel panel-default" >
+						<div class="panel-heading" >Details</div >
+						<div class="panel-body" >							
+							
+							<form class="form-horizontal"
+								  ng-submit="createCard()"
+								  novalidate>
+
+								  <ng-include src="'../templates/partials/form.html'" ></ng-include >	
+							</form >
+
+						</div >
+					</div >					
+				</div >
+			</div >
+		</div >
+		
+		<script src="/js/angular.js"></script>
+		<script src="/js/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
+		<script src="/js/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
+		<script src="/js/spin.js/spin.js"></script>
+		<script src="/js/angular-spinner/angular-spinner.min.js"></script>
+		<script src="/js/angular-strap/dist/angular-strap.min.js" ></script >
+		<script src="/js/angular-strap/dist/angular-strap.tpl.min.js" ></script >
+		<script src="/js/controllers.js"></script>
+	</body>
+</html>
